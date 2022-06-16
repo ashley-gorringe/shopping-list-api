@@ -53,7 +53,7 @@ if($item['list_id'] != $list_id){
 try{
 	$GLOBALS[database]->update('item',[
 		'checked'=>1,
-		'checked_time'=>time(),
+		'checked_time'=>date('Y-m-d H:i:s'),
 	],[
 		'id'=>$item_id,
 	]);
