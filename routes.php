@@ -30,8 +30,8 @@ Route::add('/item/check', function() {
 Route::add('/item/uncheck', function() {
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/uncheck.php';
 });
-Route::add('/cron/clear-items', function() {
-	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/cron/clear-items.php';
+Route::add('/cron', function() {
+	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/cron.php';
 });
 Route::pathNotFound(function() {
 	$response->status = 'error';
