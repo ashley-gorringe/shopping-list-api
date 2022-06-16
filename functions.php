@@ -17,4 +17,13 @@ function randomStringCaps($length){
     }
     return $randomString;
 }
+function randomStringCode($length){
+    $characters = '0123456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for($i = 0; $i < $length; $i++){
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
 ?>

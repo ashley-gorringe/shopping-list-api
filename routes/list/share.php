@@ -26,12 +26,12 @@ $existing_count = $GLOBALS[database]->count('share',[
 ]);
 
 if($existing_count < 1){
-	$share_code = randomStringCaps(6);
+	$share_code = randomStringCode(6);
 	$share_code_count = $GLOBALS[database]->count('share',[
 		'code'=>$share_code,
 	]);
 	while($share_code_count > 0){
-		$share_code = randomStringCaps(6);
+		$share_code = randomStringCode(6);
 	}
 
 	$expire = date('Y-m-d H:i:s', strtotime("+1 day"));
