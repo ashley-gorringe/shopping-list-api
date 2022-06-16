@@ -34,11 +34,9 @@ if($existing_count < 1){
 		$share_code = randomStringCode(6);
 	}
 
-	$expire = date('Y-m-d H:i:s', strtotime("+1 day"));
 	$GLOBALS[database]->insert('share',[
 		'code'=>$share_code,
 		'list_id'=>$list_id,
-		'expire'=>$expire,
 	]);
 
 	$response->status = 'success';
