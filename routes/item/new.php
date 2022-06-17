@@ -17,7 +17,7 @@ if($token_count != 1){
 	echo json_encode($response);
 	exit;
 }else{
-	if(empty($_GET['name'])){
+	if(empty($_GET['item_n'])){
 		$response->status = 'error';
 		$response->message = 'Item name has not been declared.';
 		echo json_encode($response);
