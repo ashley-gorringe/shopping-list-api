@@ -36,6 +36,9 @@ Route::add('/item/edit', function() {
 Route::add('/item/getEdit', function() {
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/getEdit.php';
 });
+Route::add('/item/delete', function() {
+	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/delete.php';
+});
 Route::add('/cron', function() {
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/cron.php';
 });
