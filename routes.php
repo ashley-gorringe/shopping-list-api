@@ -30,6 +30,9 @@ Route::add('/item/check', function() {
 Route::add('/item/uncheck', function() {
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/uncheck.php';
 });
+Route::add('/item/getEdit', function() {
+	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/getEdit.php';
+});
 Route::add('/cron', function() {
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/cron.php';
 });
