@@ -26,6 +26,11 @@ if($token_count != 1){
 			'created_time'=>'DESC',
 		],
 	]);
+	foreach($items as $key=>$item){
+		$item['name'] = str_replace('>','&gt;',str_replace('<','&lt;',$item['name']));
+		$item['description'] = str_replace('>','&gt;',str_replace('<','&lt;',$item['description']));
+		$items[$key] = $item;
+	}
 
 	$response->status = 'success';
 	$response->items = $items;
