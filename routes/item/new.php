@@ -30,7 +30,7 @@ if($token_count != 1){
 
 	$GLOBALS[database]->insert('item',[
 		'list_id'=>$list_id,
-		'name'=>$_GET['name'],
+		'name'=>$_GET['item_n'],
 		'description'=>$_GET['description'],
 	]);
 	$item_id = $GLOBALS[database]->id();

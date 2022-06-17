@@ -52,7 +52,7 @@ if($item['list_id'] != $list_id){
 
 try{
 	$GLOBALS[database]->update('item',[
-		'name'=>$_GET['name'],
+		'name'=>$_GET['item_n'],
 		'description'=>$_GET['description'],
 	],[
 		'id'=>$item_id,
