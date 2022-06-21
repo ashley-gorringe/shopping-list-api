@@ -12,7 +12,7 @@ $token_count = $GLOBALS[database]->count('token',[
 	'token'=>$token,
 ]);
 if($token_count != 1){
-	$response->status = 'error';
+	$response->status = 'invalid';
 	$response->message = 'Token is not valid.';
 	echo json_encode($response);
 	exit;
