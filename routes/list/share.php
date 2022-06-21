@@ -40,8 +40,7 @@ if($existing_count < 1){
 	]);
 
 	$response->status = 'success';
-	$response->code1 = substr($share_code,0,3);
-	$response->code2 = substr($share_code,3,5);
+	$response->code = $share_code;
 	echo json_encode($response);
 	exit;
 }else{
@@ -49,8 +48,7 @@ if($existing_count < 1){
 		'list_id'=>$list_id,
 	]);
 	$response->status = 'success';
-	$response->code1 = substr($share_code,0,3);
-	$response->code2 = substr($share_code,3,5);
+	$response->code = $share_code;
 	echo json_encode($response);
 	exit;
 }
