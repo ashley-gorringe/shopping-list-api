@@ -25,7 +25,7 @@ try{
 	$GLOBALS[database]->delete('item',[
 		'AND'=>[
 			'checked'=>1,
-			'list_id'=>$list_id.
+			'list_id'=>$list_id,
 		]
 	]);
 	$response->status = 'success';
