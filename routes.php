@@ -21,6 +21,9 @@ Route::add('/list/get', function() {
 Route::add('/list/share', function() {
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/list/share.php';
 });
+Route::add('/list/clean', function() {
+	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/list/clean.php';
+});
 Route::add('/item/new', function() {
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/new.php';
 });
