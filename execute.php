@@ -4,6 +4,8 @@ define('BASE_PATH',dirname($_SERVER['DOCUMENT_ROOT']).'/');
 session_start();
 date_default_timezone_set('Europe/London');
 
+error_reporting(E_ERROR | E_PARSE);
+
 require BASE_PATH.'vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
