@@ -54,7 +54,7 @@ $item = $GLOBALS['database']->get('item','*',[
 $GLOBALS['logsnag']->publish([
 	'channel'=>'actions',
 	'event'=>'New Item',
-	'description'=>'A user has created a new item.',
+	'description'=>'A user has created a new item: '.$_GET['item_n'],
 	'icon'=>'✏️',
 	'notify'=>true,
 ]);
