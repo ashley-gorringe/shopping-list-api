@@ -8,7 +8,7 @@ if(empty($token)){
 	exit;
 }
 
-$token_count = $GLOBALS[database]->count('token',[
+$token_count = $GLOBALS['database']->count('token',[
 	'token'=>$token,
 ]);
 if($token_count != 1){
@@ -25,11 +25,11 @@ if(empty($_GET['item_n'])){
 	exit;
 }
 
-$list_id = $GLOBALS[database]->get('token','list_id',[
+$list_id = $GLOBALS['database']->get('token','list_id',[
 	'token'=>$token,
 ]);
 
-$item_count = $GLOBALS[database]->count('item',[
+$item_count = $GLOBALS['database']->count('item',[
 	'list_id'=>$list_id
 ]);
 
@@ -40,15 +40,23 @@ if($item_count >= 100){
 	exit;
 }
 
-$GLOBALS[database]->insert('item',[
+$GLOBALS['database']->insert('item',[
 	'list_id'=>$list_id,
 	'name'=>$_GET['item_n'],
 	'description'=>$_GET['description'],
 ]);
-$item_id = $GLOBALS[database]->id();
+$item_id = $GLOBALS['database']->id();
 
-$item = $GLOBALS[database]->get('item','*',[
+$item = $GLOBALS['database']->get('item','*',[
 	'id'=>$item_id
+]);
+
+$GLOBALS['logsnag']->publish([
+	'channel'=>'actions',
+	'event'=>'New Item',
+	'description'=>'A user has created a new item.',
+	'icon'=>'✏️',
+	'notify'=>true,
 ]);
 
 $response->status = 'success';

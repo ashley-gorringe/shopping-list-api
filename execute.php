@@ -20,6 +20,9 @@ $database = new Medoo([
     'password' => $_ENV['DB_PASSWORD'],
 ]);
 
+use Roublez\LogSnag\Client;
+$logsnag = new Client($_ENV['LS_API'], 'shopping-list');
+
 date_default_timezone_set('Europe/London');
 require_once BASE_PATH.'functions.php';
 ?>

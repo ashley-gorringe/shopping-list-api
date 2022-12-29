@@ -2,7 +2,7 @@
 $token = randomStringCaps(60);
 $share_code = $_GET['code'];
 
-$share_code_count = $GLOBALS[database]->count('share',[
+$share_code_count = $GLOBALS['database']->count('share',[
 	'code'=>$share_code,
 ]);
 if($share_code_count != 1){
@@ -12,14 +12,22 @@ if($share_code_count != 1){
 	exit;
 }
 
-$list_id = $GLOBALS[database]->get('share','list_id',[
+$list_id = $GLOBALS['database']->get('share','list_id',[
 	'code'=>$share_code,
 ]);
 
 try{
-	$GLOBALS[database]->insert('token',[
+	$GLOBALS['database']->insert('token',[
 		'token'=>$token,
 		'list_id'=>$list_id
+	]);
+
+	$GLOBALS['logsnag']->publish([
+		'channel'=>'actions',
+		'event'=>'List Joined',
+		'description'=>'A user has joined an existing list.',
+		'icon'=>'🤝',
+		'notify'=>true,
 	]);
 
 	$response->status = 'success';

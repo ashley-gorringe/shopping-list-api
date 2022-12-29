@@ -15,7 +15,7 @@ if(empty($item_id)){
 	exit;
 }
 
-$token_count = $GLOBALS[database]->count('token',[
+$token_count = $GLOBALS['database']->count('token',[
 	'token'=>$token,
 ]);
 if($token_count != 1){
@@ -25,7 +25,7 @@ if($token_count != 1){
 	exit;
 }
 
-$item_count = $GLOBALS[database]->count('item',[
+$item_count = $GLOBALS['database']->count('item',[
 	'id'=>$item_id,
 ]);
 if($item_count != 1){
@@ -35,11 +35,11 @@ if($item_count != 1){
 	exit;
 }
 
-$list_id = $GLOBALS[database]->get('token','list_id',[
+$list_id = $GLOBALS['database']->get('token','list_id',[
 	'token'=>$token,
 ]);
 
-$item = $GLOBALS[database]->get('item','*',[
+$item = $GLOBALS['database']->get('item','*',[
 	'id'=>$item_id
 ]);
 
@@ -51,9 +51,18 @@ if($item['list_id'] != $list_id){
 }
 
 try{
-	$GLOBALS[database]->delete('item',[
+	$GLOBALS['database']->delete('item',[
 		'id'=>$item_id,
 	]);
+
+	$GLOBALS['logsnag']->publish([
+		'channel'=>'actions',
+		'event'=>'Item Deleted',
+		'description'=>'A user has deleted an item.',
+		'icon'=>'🗑️',
+		'notify'=>false,
+	]);
+
 	$response->status = 'success';
 	echo json_encode($response);
 	exit;
