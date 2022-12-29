@@ -35,18 +35,22 @@ try{
 	exit;
 }
 
-$GLOBALS['logsnag']->publish([
-	'channel'=>'crons',
-	'event'=>'Cleaned up '.$item_count.' items',
-	'icon'=>'🧹',
-	'notify'=>true,
-]);
-$GLOBALS['logsnag']->publish([
-	'channel'=>'crons',
-	'event'=>'Expired '.$share_count.' share codes',
-	'icon'=>'🧹',
-	'notify'=>true,
-]);
+if($item_count > 0){
+	$GLOBALS['logsnag']->publish([
+		'channel'=>'crons',
+		'event'=>'Cleaned up '.$item_count.' items',
+		'icon'=>'🧹',
+		'notify'=>true,
+	]);
+}
+if($share_count > 0){
+	$GLOBALS['logsnag']->publish([
+		'channel'=>'crons',
+		'event'=>'Expired '.$share_count.' share codes',
+		'icon'=>'🧹',
+		'notify'=>true,
+	]);
+}
 
 $response->status = 'success';
 $response->threshold = $threshold;
