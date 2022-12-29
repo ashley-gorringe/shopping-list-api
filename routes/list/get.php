@@ -8,7 +8,7 @@ if(empty($token)){
 	exit;
 }
 
-$token_count = $GLOBALS[database]->count('token',[
+$token_count = $GLOBALS['database']->count('token',[
 	'token'=>$token,
 ]);
 if($token_count != 1){
@@ -17,10 +17,10 @@ if($token_count != 1){
 	echo json_encode($response);
 	exit;
 }else{
-	$list_id = $GLOBALS[database]->get('token','list_id',[
+	$list_id = $GLOBALS['database']->get('token','list_id',[
 		'token'=>$token,
 	]);
-	$items = $GLOBALS[database]->select('item','*',[
+	$items = $GLOBALS['database']->select('item','*',[
 		'list_id'=>$list_id,
 		'ORDER'=>[
 			'created_time'=>'DESC',

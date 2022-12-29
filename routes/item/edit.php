@@ -15,7 +15,7 @@ if(empty($item_id)){
 	exit;
 }
 
-$token_count = $GLOBALS[database]->count('token',[
+$token_count = $GLOBALS['database']->count('token',[
 	'token'=>$token,
 ]);
 if($token_count != 1){
@@ -25,7 +25,7 @@ if($token_count != 1){
 	exit;
 }
 
-$item_count = $GLOBALS[database]->count('item',[
+$item_count = $GLOBALS['database']->count('item',[
 	'id'=>$item_id,
 ]);
 if($item_count != 1){
@@ -35,11 +35,11 @@ if($item_count != 1){
 	exit;
 }
 
-$list_id = $GLOBALS[database]->get('token','list_id',[
+$list_id = $GLOBALS['database']->get('token','list_id',[
 	'token'=>$token,
 ]);
 
-$item = $GLOBALS[database]->get('item','*',[
+$item = $GLOBALS['database']->get('item','*',[
 	'id'=>$item_id
 ]);
 
@@ -51,7 +51,7 @@ if($item['list_id'] != $list_id){
 }
 
 try{
-	$GLOBALS[database]->update('item',[
+	$GLOBALS['database']->update('item',[
 		'name'=>$_GET['item_n'],
 		'description'=>$_GET['description'],
 	],[
