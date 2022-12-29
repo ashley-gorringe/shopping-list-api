@@ -10,42 +10,55 @@ header("Access-Control-Allow-Origin: *");
 use Steampixel\Route;
 
 Route::add('/list/new', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/list/new.php';
 });
 Route::add('/list/join', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/list/join.php';
 });
 Route::add('/list/get', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/list/get.php';
 });
 Route::add('/list/share', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/list/share.php';
 });
 Route::add('/list/clean', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/list/clean.php';
 });
 Route::add('/item/new', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/new.php';
 });
 Route::add('/item/check', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/check.php';
 });
 Route::add('/item/uncheck', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/uncheck.php';
 });
 Route::add('/item/edit', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/edit.php';
 });
 Route::add('/item/getEdit', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/getEdit.php';
 });
 Route::add('/item/delete', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/item/delete.php';
 });
 Route::add('/cron', function() {
+	$response = (object)[];
 	require_once dirname($_SERVER['DOCUMENT_ROOT']).'/routes/cron.php';
 });
 Route::pathNotFound(function() {
+	$response = (object)[];
 	$response->status = 'error';
   	$response->message = 'No API path defined.';
   	echo json_encode($response);
