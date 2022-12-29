@@ -2,13 +2,13 @@
 $threshold = date('Y-m-d H:i:s', strtotime("-1 day"));
 
 try{
-	$item_count = $GLOBALS[database]->count('item',[
+	$item_count = $GLOBALS['database']->count('item',[
 		'AND'=>[
 			'checked'=>1,
 			'checked_time[<=]'=>$threshold,
 		]
 	]);
-	$GLOBALS[database]->delete('item',[
+	$GLOBALS['database']->delete('item',[
 		'AND'=>[
 			'checked'=>1,
 			'checked_time[<=]'=>$threshold,
@@ -22,10 +22,10 @@ try{
 }
 
 try{
-	$share_count = $GLOBALS[database]->count('share',[
+	$share_count = $GLOBALS['database']->count('share',[
 		'created_time[<=]'=>$threshold,
 	]);
-	$GLOBALS[database]->delete('share',[
+	$GLOBALS['database']->delete('share',[
 		'created_time[<=]'=>$threshold,
 	]);
 }catch(Exception $e){
@@ -34,6 +34,19 @@ try{
 	echo json_encode($response);
 	exit;
 }
+
+$GLOBALS['logsnag']->publish([
+	'channel'=>'crons',
+	'event'=>'Cleaned up '.$item_count.' items',
+	'icon'=>'🧹',
+	'notify'=>true,
+]);
+$GLOBALS['logsnag']->publish([
+	'channel'=>'crons',
+	'event'=>'Expired '.$share_count.' share codes',
+	'icon'=>'🧹',
+	'notify'=>true,
+]);
 
 $response->status = 'success';
 $response->threshold = $threshold;
