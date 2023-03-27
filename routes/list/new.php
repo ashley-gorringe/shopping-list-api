@@ -9,6 +9,7 @@ try{
 		'list_id'=>$list_id
 	]);
 
+	/*
 	$GLOBALS['logsnag']->publish([
 		'channel'=>'actions',
 		'event'=>'New List Created',
@@ -16,6 +17,7 @@ try{
 		'icon'=>'✨',
 		'notify'=>true,
 	]);
+	*/
 
 	$response->status = 'success';
 	$response->token = $token;
