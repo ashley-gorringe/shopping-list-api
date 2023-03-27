@@ -54,7 +54,8 @@ try{
 	$GLOBALS['database']->delete('item',[
 		'id'=>$item_id,
 	]);
-
+	
+	/*
 	$GLOBALS['logsnag']->publish([
 		'channel'=>'actions',
 		'event'=>'Item Deleted',
@@ -62,6 +63,7 @@ try{
 		'icon'=>'🗑️',
 		'notify'=>false,
 	]);
+	*/
 
 	$response->status = 'success';
 	echo json_encode($response);
