@@ -58,6 +58,7 @@ try{
 		'id'=>$item_id,
 	]);
 
+	/*
 	$GLOBALS['logsnag']->publish([
 		'channel'=>'actions',
 		'event'=>'Item Checked',
@@ -65,7 +66,8 @@ try{
 		'icon'=>'✅',
 		'notify'=>false,
 	]);
-
+	*/
+	
 	$response->status = 'success';
 	echo json_encode($response);
 	exit;
