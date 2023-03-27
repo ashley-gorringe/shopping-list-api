@@ -22,6 +22,7 @@ try{
 		'list_id'=>$list_id
 	]);
 
+	/*
 	$GLOBALS['logsnag']->publish([
 		'channel'=>'actions',
 		'event'=>'List Joined',
@@ -29,6 +30,7 @@ try{
 		'icon'=>'🤝',
 		'notify'=>true,
 	]);
+	*/
 
 	$response->status = 'success';
 	$response->token = $token;
