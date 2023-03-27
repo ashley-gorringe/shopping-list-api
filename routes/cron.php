@@ -35,6 +35,7 @@ try{
 	exit;
 }
 
+/*
 if($item_count > 0){
 	$GLOBALS['logsnag']->publish([
 		'channel'=>'crons',
@@ -51,6 +52,7 @@ if($share_count > 0){
 		'notify'=>true,
 	]);
 }
+*/
 
 $response->status = 'success';
 $response->threshold = $threshold;
